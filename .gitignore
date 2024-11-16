@@ -1,0 +1,29 @@
+# Archivos compilados
+*.class
+
+# Archivos de construcción
+target/
+build/
+out/
+
+# Archivos de IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# Archivos de configuración local
+application-local.properties
+application-dev.properties
+
+# Logs
+*.log
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Directorios de dependencias
+node_modules/
