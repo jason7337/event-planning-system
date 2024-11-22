@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.*?>
+<?import com.eventplanningsystem.model.SidebarItem?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.eventplanningsystem.controller.SidebarController"
+      styleClass="sidebar">
+
+    <Label text="Event Planning System" styleClass="sidebar-header"/>
+
+    <ListView fx:id="sidebarMenu" VBox.vgrow="ALWAYS"/>
+
+    <Button text="Cerrar Sesión" styleClass="sidebar-logout-btn" onAction="#handleLogout">
+        <graphic>
+            <FontIcon iconLiteral="fas-sign-out-alt"/>
+        </graphic>
+    </Button>
+
+</VBox>

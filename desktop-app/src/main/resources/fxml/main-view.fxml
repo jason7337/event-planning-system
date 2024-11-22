@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<HBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.eventplanningsystem.controller.MainViewController"
+      styleClass="root" stylesheets="@../styles/styles.css" fx:id="rootPane">
+
+    <fx:include source="sidebar-menu.fxml"/>
+
+    <VBox styleClass="main-panel" HBox.hgrow="ALWAYS">
+        <StackPane VBox.vgrow="ALWAYS" styleClass="content-area">
+            <Label text="Bienvenido al Sistema de Gestión de Eventos" style="-fx-font-size: 24px;"/>
+        </StackPane>
+    </VBox>
+
+</HBox>

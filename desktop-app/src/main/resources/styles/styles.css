@@ -1,0 +1,198 @@
+/* Definición de variables de color */
+.root {
+    /* Modo claro */
+    -fx-primary-light: #3498db;
+    -fx-secondary-light: #2980b9;
+    -fx-background-light: #ecf0f1;
+    -fx-accent-light: #bdc3c7;
+    -fx-text-light: #2c3e50;
+
+    /* Modo oscuro */
+    -fx-primary-dark: #34495e;
+    -fx-secondary-dark: #2c3e50;
+    -fx-background-dark: #1a2530;
+    -fx-accent-dark: #2c3e50;
+    -fx-text-dark: #ecf0f1;
+}
+
+/* Estilos generales */
+.root {
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* Login View Styles */
+.login-container {
+    -fx-background-color: -fx-background-light;
+}
+
+.login-form {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+}
+
+.image-container {
+    -fx-background-color: -fx-primary-light;
+}
+
+.login-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary-light;
+}
+
+.login-textfield, .login-passwordfield {
+    -fx-pref-width: 300px;
+    -fx-pref-height: 40px;
+    -fx-background-color: -fx-background-light;
+    -fx-background-radius: 5px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-radius: 0;
+    -fx-padding: 5px 10px;
+    -fx-font-size: 14px;
+}
+
+.login-textfield:focused, .login-passwordfield:focused {
+    -fx-border-color: -fx-primary-light;
+}
+
+.login-button {
+    -fx-background-color: -fx-primary-light;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-pref-width: 300px;
+    -fx-pref-height: 40px;
+    -fx-background-radius: 20px;
+    -fx-cursor: hand;
+}
+
+.login-button:hover {
+    -fx-background-color: -fx-secondary-light;
+}
+
+.theme-toggle {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-light;
+    -fx-cursor: hand;
+}
+
+/* Dark theme styles */
+.root.dark {
+    -fx-background-color: -fx-background-dark;
+}
+
+.root.dark .login-container {
+    -fx-background-color: -fx-background-dark;
+}
+
+.root.dark .login-form {
+    -fx-background-color: -fx-accent-dark;
+}
+
+.root.dark .image-container {
+    -fx-background-color: -fx-primary-dark;
+}
+
+.root.dark .login-title {
+    -fx-text-fill: -fx-text-dark;
+}
+
+.root.dark .login-textfield, .root.dark .login-passwordfield {
+    -fx-background-color: -fx-background-dark;
+    -fx-text-fill: -fx-text-dark;
+}
+
+.root.dark .login-button {
+    -fx-background-color: -fx-primary-dark;
+}
+
+.root.dark .login-button:hover {
+    -fx-background-color: -fx-secondary-dark;
+}
+
+.root.dark .theme-toggle {
+    -fx-text-fill: -fx-text-dark;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    -fx-background-color: -fx-primary-light;
+    -fx-padding: 20px 10px;
+}
+
+.sidebar-header {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-padding: 0 0 20px 0;
+}
+
+.sidebar .list-view {
+    -fx-background-color: transparent;
+    -fx-padding: 10px 0;
+}
+
+.sidebar .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 10px 15px;
+}
+
+.sidebar .list-cell:hover {
+    -fx-background-color: -fx-secondary-light;
+}
+
+.sidebar .list-cell:selected {
+    -fx-background-color: -fx-secondary-light;
+}
+
+.sidebar-logout-btn {
+    -fx-background-color: -fx-secondary-light;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 10px 15px;
+    -fx-cursor: hand;
+}
+
+.sidebar-logout-btn:hover {
+    -fx-background-color: #1c5a85;
+}
+
+/* Main Panel Styles */
+.main-panel {
+    -fx-background-color: -fx-background-light;
+}
+
+.content-area {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+}
+
+/* Dark theme styles for sidebar and main panel */
+.root.dark .sidebar {
+    -fx-background-color: -fx-primary-dark;
+}
+
+.root.dark .sidebar .list-cell:hover,
+.root.dark .sidebar .list-cell:selected {
+    -fx-background-color: -fx-secondary-dark;
+}
+
+.root.dark .sidebar-logout-btn {
+    -fx-background-color: -fx-secondary-dark;
+}
+
+.root.dark .sidebar-logout-btn:hover {
+    -fx-background-color: #1a252f;
+}
+
+.root.dark .main-panel {
+    -fx-background-color: -fx-background-dark;
+}
+
+.root.dark .content-area {
+    -fx-background-color: -fx-accent-dark;
+}
