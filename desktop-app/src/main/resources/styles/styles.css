@@ -13,11 +13,17 @@
     -fx-background-dark: #1a2530;
     -fx-accent-dark: #2c3e50;
     -fx-text-dark: #ecf0f1;
+
+    /* Nuevos colores */
+    -fx-success: #2ecc71;
+    -fx-warning: #f39c12;
+    -fx-danger: #e74c3c;
 }
 
 /* Estilos generales */
 .root {
     -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-background-color: -fx-background-light;
 }
 
 /* Login View Styles */
@@ -77,48 +83,64 @@
     -fx-cursor: hand;
 }
 
-/* Dark theme styles */
-.root.dark {
-    -fx-background-color: -fx-background-dark;
+/* Header Styles */
+.header {
+    -fx-background-color: -fx-primary-light;
+    -fx-padding: 10px;
 }
 
-.root.dark .login-container {
-    -fx-background-color: -fx-background-dark;
+.header-title {
+    -fx-font-size: 24px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
 }
 
-.root.dark .login-form {
-    -fx-background-color: -fx-accent-dark;
+.menu-toggle, .theme-toggle {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
 }
 
-.root.dark .image-container {
-    -fx-background-color: -fx-primary-dark;
+.menu-toggle:hover, .theme-toggle:hover {
+    -fx-background-color: -fx-secondary-light;
 }
 
-.root.dark .login-title {
-    -fx-text-fill: -fx-text-dark;
+.user-name {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
 }
 
-.root.dark .login-textfield, .root.dark .login-passwordfield {
-    -fx-background-color: -fx-background-dark;
-    -fx-text-fill: -fx-text-dark;
+/* Content Area Styles */
+.content-area {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+    -fx-padding: 20px;
 }
 
-.root.dark .login-button {
-    -fx-background-color: -fx-primary-dark;
+.welcome-text {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary-light;
 }
 
-.root.dark .login-button:hover {
-    -fx-background-color: -fx-secondary-dark;
+.user-info-grid {
+    -fx-background-color: -fx-background-light;
+    -fx-background-radius: 5px;
+    -fx-padding: 15px;
 }
 
-.root.dark .theme-toggle {
-    -fx-text-fill: -fx-text-dark;
+.user-info-grid Label {
+    -fx-font-size: 14px;
 }
 
 /* Sidebar Styles */
 .sidebar {
     -fx-background-color: -fx-primary-light;
     -fx-padding: 20px 10px;
+    -fx-pref-width: 250px;
+    -fx-translate-x: 0;
+    -fx-transition: -fx-translate-x 0.3s;
 }
 
 .sidebar-header {
@@ -160,18 +182,31 @@
     -fx-background-color: #1c5a85;
 }
 
-/* Main Panel Styles */
-.main-panel {
-    -fx-background-color: -fx-background-light;
+/* Dark theme styles */
+.root.dark {
+    -fx-background-color: -fx-background-dark;
 }
 
-.content-area {
-    -fx-background-color: white;
-    -fx-background-radius: 10px;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+.root.dark .header {
+    -fx-background-color: -fx-primary-dark;
 }
 
-/* Dark theme styles for sidebar and main panel */
+.root.dark .content-area {
+    -fx-background-color: -fx-accent-dark;
+}
+
+.root.dark .welcome-text {
+    -fx-text-fill: -fx-text-dark;
+}
+
+.root.dark .user-info-grid {
+    -fx-background-color: -fx-background-dark;
+}
+
+.root.dark .user-info-grid Label {
+    -fx-text-fill: -fx-text-dark;
+}
+
 .root.dark .sidebar {
     -fx-background-color: -fx-primary-dark;
 }
@@ -189,10 +224,196 @@
     -fx-background-color: #1a252f;
 }
 
-.root.dark .main-panel {
+.sidebar-menu-list {
+    -fx-background-color: transparent;
+    -fx-padding: 10px 0;
+}
+
+.sidebar-menu-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 5px 0;
+}
+
+.sidebar-menu-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10px 15px;
+    -fx-cursor: hand;
+}
+
+.sidebar-menu-button:hover {
+    -fx-background-color: -fx-secondary-light;
+}
+
+.sidebar-menu-icon {
+    -fx-icon-color: white;
+    -fx-icon-size: 18px;
+    -fx-padding: 0 10px 0 0;
+}
+
+.root.dark .sidebar-menu-button:hover {
+    -fx-background-color: -fx-secondary-dark;
+}
+
+/* Estilos para el tema oscuro en los diálogos y vistas de gestión de usuarios */
+.root.dark .content-area {
+    -fx-background-color: -fx-accent-dark;
+}
+
+.root.dark .welcome-text {
+    -fx-text-fill: -fx-text-dark;
+}
+
+.root.dark .user-info-grid {
     -fx-background-color: -fx-background-dark;
 }
 
-.root.dark .content-area {
-    -fx-background-color: -fx-accent-dark;
+.root.dark .login-textfield, 
+.root.dark .login-passwordfield {
+    -fx-background-color: -fx-background-dark;
+    -fx-text-fill: -fx-text-dark;
+    -fx-prompt-text-fill: derive(-fx-text-dark, -30%);
+}
+
+.root.dark .login-button {
+    -fx-background-color: -fx-primary-dark;
+}
+
+.root.dark .login-button:hover {
+    -fx-background-color: -fx-secondary-dark;
+}
+
+/* Estilos para la tabla en tema oscuro */
+.root.dark .table-view {
+    -fx-background-color: -fx-background-dark;
+    -fx-text-fill: -fx-text-dark;
+}
+
+.root.dark .table-view .column-header-background {
+    -fx-background-color: -fx-primary-dark;
+}
+
+.root.dark .table-view .column-header, 
+.root.dark .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-dark;
+}
+
+.root.dark .table-view .table-cell {
+    -fx-text-fill: -fx-text-dark;
+}
+
+.root.dark .table-row-cell {
+    -fx-background-color: -fx-background-dark;
+    -fx-table-cell-border-color: derive(-fx-background-dark, 10%);
+}
+
+.root.dark .table-row-cell:odd {
+    -fx-background-color: derive(-fx-background-dark, 5%);
+}
+
+.root.dark .table-row-cell:selected {
+    -fx-background-color: -fx-primary-dark;
+    -fx-text-fill: -fx-text-dark;
+}
+
+/* Estilos para los botones de acción en la tabla */
+.table-view .login-button {
+    -fx-pref-width: 80px;
+    -fx-min-width: 80px;
+    -fx-max-width: 80px;
+    -fx-pref-height: 30px;
+    -fx-min-height: 30px;
+    -fx-max-height: 30px;
+    -fx-font-size: 12px;
+    -fx-background-radius: 15px;
+    -fx-padding: 5px 10px;
+}
+
+.table-view .login-button:hover {
+    -fx-background-color: -fx-secondary-light;
+}
+
+/* Estilos para el tema oscuro */
+.root.dark .table-view .login-button {
+    -fx-background-color: -fx-primary-dark;
+    -fx-text-fill: -fx-text-dark;
+}
+
+.root.dark .table-view .login-button:hover {
+    -fx-background-color: -fx-secondary-dark;
+}
+
+/* Ajustar el ancho de la columna de acciones */
+.table-view .table-column:last-visible {
+    -fx-pref-width: 180px;
+}
+
+/* Estilos para el diálogo */
+.dialog-pane {
+    -fx-background-color: -fx-background-light;
+}
+
+.dialog-button {
+    -fx-background-color: -fx-primary-light;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-pref-width: 100px;
+    -fx-pref-height: 30px;
+    -fx-background-radius: 15px;
+    -fx-padding: 5px 10px;
+}
+
+.dialog-button:hover {
+    -fx-background-color: -fx-secondary-light;
+}
+
+/* Estilos para el tema oscuro */
+.root.dark .dialog-pane {
+    -fx-background-color: -fx-background-dark;
+}
+
+.root.dark .dialog-pane .label {
+    -fx-text-fill: -fx-text-dark;
+}
+
+.root.dark .dialog-button {
+    -fx-background-color: -fx-primary-dark;
+    -fx-text-fill: -fx-text-dark;
+}
+
+.root.dark .dialog-button:hover {
+    -fx-background-color: -fx-secondary-dark;
+}
+
+/* Ajustes adicionales para el tema oscuro */
+.root.dark .login-textfield,
+.root.dark .login-passwordfield {
+    -fx-background-color: derive(-fx-background-dark, 20%);
+    -fx-text-fill: -fx-text-dark;
+    -fx-prompt-text-fill: derive(-fx-text-dark, -30%);
+}
+
+.root.dark .combo-box {
+    -fx-background-color: derive(-fx-background-dark, 20%);
+}
+
+.root.dark .combo-box .list-cell {
+    -fx-background-color: derive(-fx-background-dark, 20%);
+    -fx-text-fill: -fx-text-dark;
+}
+
+.root.dark .combo-box-popup .list-view {
+    -fx-background-color: derive(-fx-background-dark, 20%);
+}
+
+.root.dark .combo-box-popup .list-cell {
+    -fx-background-color: derive(-fx-background-dark, 20%);
+    -fx-text-fill: -fx-text-dark;
+}
+
+.root.dark .combo-box-popup .list-cell:hover {
+    -fx-background-color: -fx-primary-dark;
 }

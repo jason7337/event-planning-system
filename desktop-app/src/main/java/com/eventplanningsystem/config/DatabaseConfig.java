@@ -10,7 +10,12 @@ public class DatabaseConfig {
         String user = dotenv.get("DB_USER");
         String password = dotenv.get("DB_PASSWORD");
 
-        Flyway flyway = Flyway.configure().dataSource(url, user, password).load();
+        Flyway flyway = Flyway.configure()
+            .dataSource(url, user, password)
+            .locations("classpath:db/migration")
+            .load();
         flyway.migrate();
+        
+        System.out.println("Database migration completed successfully.");
     }
 }

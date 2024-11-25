@@ -19,9 +19,10 @@ public class LoginController {
     @FXML private TextField txtCorreo;
     @FXML private PasswordField txtPassword;
     @FXML private Label lblError;
-    //@FXML private StackPane rootPane;
+    @FXML private StackPane rootPane;
 
     private UserService userService;
+    private boolean isDarkTheme = false;
 
     public LoginController() {
         this.userService = new UserService();
@@ -35,13 +36,16 @@ public class LoginController {
         try {
             User user = userService.authenticateUser(correo, password);
             if (user != null) {
+                System.out.println("Login successful for user: " + user.getNombre());
                 loadMainView();
             } else {
                 lblError.setText("Correo o contraseña incorrectos");
+                System.out.println("Login failed for email: " + correo);
             }
-        } catch (IOException | SQLException e) {
-            lblError.setText("Error al iniciar sesion: " + e.getMessage());
+        } catch (SQLException e) {
+            lblError.setText("Error al iniciar sesión: " + e.getMessage());
             e.printStackTrace();
+        }
     }
 
     private void loadMainView() {
@@ -49,7 +53,7 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main-view.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            Scene stage = (Stage) txtCorreo.getScene().getWindow();
+            Stage stage = (Stage) txtCorreo.getScene().getWindow();
             stage.setScene(scene);
             stage.setTitle("Sistema de Gestión de Eventos");
             stage.setResizable(true);

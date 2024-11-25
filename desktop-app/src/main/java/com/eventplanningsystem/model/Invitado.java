@@ -1,35 +1,33 @@
 package com.eventplanningsystem.model;
 
-public class User {
-    private int idUsuario;
+public class Invitado {
+    private int idInvitado;
     private String nombre;
     private String correoElectronico;
     private String password;
     private String telefono;
-    private String tipoUsuario;
-    private String fechaRegistro; 
+    private TipoInvitado tipoInvitado;
 
     // Constructor sin parámetros
-    public User() {}
+    public Invitado() {}
 
     // Constructor con parámetros
-    public User(int idUsuario, String nombre, String correoElectronico, String password, String telefono, String tipoUsuario, String fechaRegistro) {
-        this.idUsuario = idUsuario;
+    public Invitado(int idInvitado, String nombre, String correoElectronico, String password, String telefono, TipoInvitado tipoInvitado) {
+        this.idInvitado = idInvitado;
         this.nombre = nombre;
         this.correoElectronico = correoElectronico;
         this.password = password;
         this.telefono = telefono;
-        this.tipoUsuario = tipoUsuario;
-        this.fechaRegistro = fechaRegistro;
+        this.tipoInvitado = tipoInvitado;
     }
 
     // Getters y setters
-    public int getIdUsuario() {
-        return idUsuario;
+    public int getIdInvitado() {
+        return idInvitado;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdInvitado(int idInvitado) {
+        this.idInvitado = idInvitado;
     }
 
     public String getNombre() {
@@ -64,19 +62,11 @@ public class User {
         this.telefono = telefono;
     }
 
-    public String getTipoUsuario() {
-        return tipoUsuario;
+    public TipoInvitado getTipoInvitado() {
+        return tipoInvitado;
     }
 
-    public void setTipoUsuario(String tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
-    }
-
-    public String getFechaRegistro() {
-        return fechaRegistro;
-    }
-
-    public void setFechaRegistro(String fechaRegistro) {
-        this.fechaRegistro = fechaRegistro;
+    public void setTipoInvitado(TipoInvitado tipoInvitado) {
+        this.tipoInvitado = tipoInvitado;
     }
 }

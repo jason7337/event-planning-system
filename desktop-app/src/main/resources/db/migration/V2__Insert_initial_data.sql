@@ -1,8 +1,8 @@
 -- Insertar usuarios iniciales (Todos usando la contraseña "password123")
 INSERT INTO Usuarios (nombre, correoElectronico, contraseña, telefono, tipoUsuario)
 VALUES
-    ('Admin Usuario', 'admin@example.com', '$2a$10$XQnYKN4gQD3W4JiF7wQlz.m6gSAd0dPfcmZdHZuSDhG1LB9z7mvkq', '1234567890', 'gestor'),
-    ('Organizador Ejemplo', 'organizador@example.com', '$2a$10$XQnYKN4gQD3W4JiF7wQlz.m6gSAd0dPfcmZdHZuSDhG1LB9z7mvkq', '0987654321', 'organizador');
+    ('Admin Usuario', 'admin@example.com', '$2a$10$XQnYKN4gQD3W4JiF7wQlz.vKy4EQSXSb1wTW6odUnf4HleVJ1wGNy', '1234567890', 'gestor'),
+    ('Organizador Ejemplo', 'organizador@example.com', '$2a$10$XQnYKN4gQD3W4JiF7wQlz.vKy4EQSXSb1wTW6odUnf4HleVJ1wGNy', '0987654321', 'organizador');
 
 -- Insertar tipos de invitado
 INSERT INTO TipoInvitado (nombreTipo, descripcion)
@@ -30,8 +30,8 @@ VALUES
 -- Insertar algunos invitados de ejemplo (Todos usando la contraseña "password123")
 INSERT INTO Invitados (nombre, correoElectronico, contraseña, telefono, idTipoInvitado)
 VALUES
-    ('Juan Pérez', 'juan@example.com', '$2a$10$XQnYKN4gQD3W4JiF7wQlz.m6gSAd0dPfcmZdHZuSDhG1LB9z7mvkq', '1122334455', (SELECT idTipoInvitado FROM TipoInvitado WHERE nombreTipo = 'VIP')),
-    ('María García', 'maria@example.com', '$2a$10$XQnYKN4gQD3W4JiF7wQlz.m6gSAd0dPfcmZdHZuSDhG1LB9z7mvkq', '5544332211', (SELECT idTipoInvitado FROM TipoInvitado WHERE nombreTipo = 'Regular'));
+    ('Juan Pérez', 'juan@example.com', '$2a$10$XQnYKN4gQD3W4JiF7wQlz.vKy4EQSXSb1wTW6odUnf4HleVJ1wGNy', '1122334455', (SELECT idTipoInvitado FROM TipoInvitado WHERE nombreTipo = 'VIP')),
+    ('María García', 'maria@example.com', '$2a$10$XQnYKN4gQD3W4JiF7wQlz.vKy4EQSXSb1wTW6odUnf4HleVJ1wGNy', '5544332211', (SELECT idTipoInvitado FROM TipoInvitado WHERE nombreTipo = 'Regular'));
 
 -- Crear algunas invitaciones para el evento de ejemplo
 INSERT INTO Invitaciones (idEvento, idInvitado, estado)

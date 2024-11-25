@@ -36,6 +36,47 @@ public class UserDAO {
         return null;
     }
 
+    public void createUser(User user) throws SQLException {
+        String sql = "INSERT INTO Usuarios (nombre, correoElectronico, contraseña, telefono, tipoUsuario) VALUES (?, ?, ?, ?, ?)";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            pstmt.setString(1, user.getNombre());
+            pstmt.setString(2, user.getCorreoElectronico());
+            pstmt.setString(3, user.getPassword());
+            pstmt.setString(4, user.getTelefono());
+            pstmt.setString(5, user.getTipoUsuario());
+            pstmt.executeUpdate();
+
+            try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    user.setIdUsuario(generatedKeys.getInt(1));
+                }
+            }
+        }
+    }
+
+    public void updateUser(User user) throws SQLException {
+        String sql = "UPDATE Usuarios SET nombre = ?, correoElectronico = ?, telefono = ?, tipoUsuario = ? WHERE idUsuario = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, user.getNombre());
+            pstmt.setString(2, user.getCorreoElectronico());
+            pstmt.setString(3, user.getTelefono());
+            pstmt.setString(4, user.getTipoUsuario());
+            pstmt.setInt(5, user.getIdUsuario());
+            pstmt.executeUpdate();
+        }
+    }
+
+    public void deleteUser(int id) throws SQLException {
+        String sql = "DELETE FROM Usuarios WHERE idUsuario = ?";
+        try (Connection conn = DatabaseUtil.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        }
+    }
+
     public List<User> getAllUsers() throws SQLException {
         List<User> users = new ArrayList<>();
         String sql = "SELECT * FROM Usuarios";
@@ -54,6 +95,7 @@ public class UserDAO {
         user.setIdUsuario(rs.getInt("idUsuario"));
         user.setNombre(rs.getString("nombre"));
         user.setCorreoElectronico(rs.getString("correoElectronico"));
+        user.setPassword(rs.getString("contraseña"));
         user.setTelefono(rs.getString("telefono"));
         user.setTipoUsuario(rs.getString("tipoUsuario"));
         user.setFechaRegistro(rs.getString("fechaRegistro"));

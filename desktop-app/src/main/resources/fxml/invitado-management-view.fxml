@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml" fx:controller="com.eventplanningsystem.controller.InvitadoManagementController"  styleClass="content-area">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    
+    <Label text="Gestión de Invitados" styleClass="welcome-text"/>
+
+    <HBox spacing="10">
+        <TextField fx:id="searchField" promptText="Buscar invitados" HBox.hgrow="ALWAYS" styleClass="login-textfield"/>
+        <Button text="Buscar" onAction="#handleSearch" styleClass="login-button"/>
+        <Button text="Nuevo Invitado" onAction="#handleNewInvitado" styleClass="login-button"/>
+    </HBox>
+    
+    <TableView fx:id="invitadoTable" VBox.vgrow="ALWAYS" styleClass="user-info-grid">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID"/>
+            <TableColumn fx:id="nameColumn" text="Nombre"/>
+            <TableColumn fx:id="emailColumn" text="Correo Electrónico"/>
+            <TableColumn fx:id="phoneColumn" text="Teléfono"/>
+            <TableColumn fx:id="tipoInvitadoColumn" text="Tipo de Invitado"/>
+            <TableColumn fx:id="actionsColumn" text="Acciones"/>
+        </columns>
+    </TableView>
+</VBox>

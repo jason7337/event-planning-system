@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import org.kordamp.ikonli.javafx.*?>
-<?import com.eventplanningsystem.model.SidebarItem?>
+<?import javafx.geometry.Insets?>
 
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
@@ -12,7 +12,7 @@
 
     <Label text="Event Planning System" styleClass="sidebar-header"/>
 
-    <ListView fx:id="sidebarMenu" VBox.vgrow="ALWAYS"/>
+    <ListView fx:id="sidebarMenu" VBox.vgrow="ALWAYS" styleClass="sidebar-menu-list"/>
 
     <Button text="Cerrar Sesión" styleClass="sidebar-logout-btn" onAction="#handleLogout">
         <graphic>
@@ -20,4 +20,7 @@
         </graphic>
     </Button>
 
+    <padding>
+        <Insets top="20" right="10" bottom="20" left="10"/>
+    </padding>
 </VBox>
