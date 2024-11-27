@@ -29,7 +29,6 @@ public class App extends Application {
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
-            // Puedes agregar aquí un manejo más específico del error si lo deseas
         }
     }
 

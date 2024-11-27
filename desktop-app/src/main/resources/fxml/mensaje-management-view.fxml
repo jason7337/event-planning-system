@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml" fx:controller="com.eventplanningsystem.controller.MensajeManagementController" styleClass="content-area">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    
+    <Label text="Gestión de Mensajes" styleClass="welcome-text"/>
+
+    <HBox spacing="10">
+        <TextField fx:id="searchField" promptText="Buscar mensajes" HBox.hgrow="ALWAYS" styleClass="login-textfield"/>
+        <Button text="Buscar" onAction="#handleSearch" styleClass="login-button"/>
+        <Button text="Nuevo Mensaje" onAction="#handleNewMensaje" styleClass="login-button"/>
+    </HBox>
+    
+    <TableView fx:id="mensajeTable" VBox.vgrow="ALWAYS" styleClass="user-info-grid">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID"/>
+            <TableColumn fx:id="eventoColumn" text="Evento"/>
+            <TableColumn fx:id="usuarioColumn" text="Usuario"/>
+            <TableColumn fx:id="invitadoColumn" text="Invitado"/>
+            <TableColumn fx:id="mensajeColumn" text="Mensaje"/>
+            <TableColumn fx:id="fechaEnvioColumn" text="Fecha de Envío"/>
+            <TableColumn fx:id="actionsColumn" text="Acciones"/>
+        </columns>
+    </TableView>
+</VBox>

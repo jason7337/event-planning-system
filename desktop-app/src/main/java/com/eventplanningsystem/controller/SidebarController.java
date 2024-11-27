@@ -87,7 +87,12 @@ public class SidebarController {
             case "Invitaciones":
                 loadView("/fxml/invitacion-management-view.fxml");
                 break;
-            // Agrega más casos para otros ítems del menú según sea necesario
+            case "Mensajes":
+                loadView("/fxml/mensaje-management-view.fxml");
+                break;
+            case "Correos":
+                loadView("/fxml/correo-management-view.fxml");
+                break;
             default:
                 System.out.println("Clicked on: " + item.getText());
                 // Lógica para otros ítems del menú
@@ -110,6 +115,6 @@ public class SidebarController {
     @FXML
     private void handleLogout() {
         System.out.println("Logout clicked");
-        // Implementa la lógica de cierre de sesión aquí
+        // Tenemos que implementar la lógica de cierre de sesión aquí
     }
 }
