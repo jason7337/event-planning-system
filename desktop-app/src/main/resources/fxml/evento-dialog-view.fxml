@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.eventplanningsystem.controller.EventoDialogController"
+      spacing="10" styleClass="root, content-area, dialog-pane">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Gestión de Eventos" styleClass="welcome-text"/>
+
+    <GridPane hgap="10" vgap="10" styleClass="user-info-grid">
+        <Label text="Título:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="tituloField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Descripción:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextArea fx:id="descripcionArea" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Label text="Fecha de Inicio:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <DatePicker fx:id="fechaInicioPicker"/>
+            <ComboBox fx:id="horaInicioPicker"/>
+            <ComboBox fx:id="minutoInicioPicker"/>
+        </HBox>
+
+        <Label text="Fecha de Fin:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <DatePicker fx:id="fechaFinPicker"/>
+            <ComboBox fx:id="horaFinPicker"/>
+            <ComboBox fx:id="minutoFinPicker"/>
+        </HBox>
+
+        <Label text="Ubicación:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <TextField fx:id="ubicacionField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+        <Label text="Organizador:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <ComboBox fx:id="organizadorComboBox" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+        <Label text="Tipo de Evento:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+        <ComboBox fx:id="tipoEventoComboBox" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+        <Label text="Estado:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+        <ComboBox fx:id="estadoComboBox" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Guardar" onAction="#handleSave"/>
+        <Button text="Cancelar" onAction="#handleCancel"/>
+    </HBox>
+</VBox>

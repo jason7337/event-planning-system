@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml" fx:controller="com.eventplanningsystem.controller.EventoManagementController" styleClass="content-area">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    
+    <Label text="Gestión de Eventos" styleClass="welcome-text"/>
+
+    <HBox spacing="10">
+        <TextField fx:id="searchField" promptText="Buscar eventos" HBox.hgrow="ALWAYS" styleClass="login-textfield"/>
+        <Button text="Buscar" onAction="#handleSearch" styleClass="login-button"/>
+        <Button text="Nuevo Evento" onAction="#handleNewEvento" styleClass="login-button"/>
+    </HBox>
+    
+    <TableView fx:id="eventoTable" VBox.vgrow="ALWAYS" styleClass="user-info-grid">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID"/>
+            <TableColumn fx:id="tituloColumn" text="Título"/>
+            <TableColumn fx:id="fechaInicioColumn" text="Fecha de Inicio"/>
+            <TableColumn fx:id="ubicacionColumn" text="Ubicación"/>
+            <TableColumn fx:id="organizadorColumn" text="Organizador"/>
+            <TableColumn fx:id="tipoEventoColumn" text="Tipo de Evento"/>
+            <TableColumn fx:id="estadoColumn" text="Estado"/>
+            <TableColumn fx:id="actionsColumn" text="Acciones"/>
+        </columns>
+    </TableView>
+</VBox>

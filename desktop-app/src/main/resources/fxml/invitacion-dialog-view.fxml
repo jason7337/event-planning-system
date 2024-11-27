@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.eventplanningsystem.controller.InvitacionDialogController"
+      spacing="10" styleClass="root, content-area, dialog-pane">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Gestión de Invitaciones" styleClass="welcome-text"/>
+
+    <GridPane hgap="10" vgap="10" styleClass="user-info-grid">
+        <Label text="Evento:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <ComboBox fx:id="eventoComboBox" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Invitado:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <ComboBox fx:id="invitadoComboBox" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Label text="Estado:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <ComboBox fx:id="estadoComboBox" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+        <Label text="Fecha de Respuesta:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <DatePicker fx:id="fechaRespuestaPicker" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Guardar" onAction="#handleSave"/>
+        <Button text="Cancelar" onAction="#handleCancel"/>
+    </HBox>
+</VBox>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.eventplanningsystem.controller.UserManagementController"
+      spacing="10" styleClass="content-area">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Gestión de Usuarios" styleClass="welcome-text"/>
+
+    <HBox spacing="10">
+        <TextField fx:id="searchField" promptText="Buscar usuarios" HBox.hgrow="ALWAYS" styleClass="login-textfield"/>
+        <Button text="Buscar" onAction="#handleSearch" styleClass="login-button"/>
+        <Button text="Nuevo Usuario" onAction="#handleNewUser" styleClass="login-button"/>
+    </HBox>
+
+    <TableView fx:id="userTable" VBox.vgrow="ALWAYS" styleClass="user-info-grid">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID"/>
+            <TableColumn fx:id="nameColumn" text="Nombre"/>
+            <TableColumn fx:id="emailColumn" text="Correo Electrónico"/>
+            <TableColumn fx:id="phoneColumn" text="Teléfono"/>
+            <TableColumn fx:id="userTypeColumn" text="Tipo de Usuario"/>
+            <TableColumn fx:id="registrationDateColumn" text="Fecha de Registro"/>
+            <TableColumn fx:id="actionsColumn" text="Acciones"/>
+        </columns>
+    </TableView>
+</VBox>
