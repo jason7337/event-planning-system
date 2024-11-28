@@ -9,6 +9,13 @@ CREATE TABLE Usuarios (
     fechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Tabla TipoInvitado
+CREATE TABLE TipoInvitado (
+    idTipoInvitado SERIAL PRIMARY KEY,
+    nombreTipo VARCHAR(50) NOT NULL,
+    descripcion TEXT
+);
+
 -- Tabla Invitados
 CREATE TABLE Invitados (
     idInvitado SERIAL PRIMARY KEY,
@@ -16,6 +23,11 @@ CREATE TABLE Invitados (
     correoElectronico VARCHAR(100) UNIQUE NOT NULL,
     contraseña VARCHAR(255) NOT NULL,
     telefono VARCHAR(15)
+
+    telefono VARCHAR(15),
+    idTipoInvitado INT NOT NULL,
+    CONSTRAINT fk_tipoInvitado FOREIGN KEY (idTipoInvitado) REFERENCES TipoInvitado (idTipoInvitado) ON DELETE CASCADE
+
 );
 
 -- Tabla TiposEvento
@@ -36,6 +48,7 @@ CREATE TABLE Eventos (
     idOrganizador INT NOT NULL,
     idTipoEvento INT NOT NULL,
     estado VARCHAR(20) CHECK (estado IN ('activo', 'cancelado')) DEFAULT 'activo',
+    estado VARCHAR(20) CHECK (estado IN ('borrador', 'publicado', 'activo', 'en_progreso', 'finalizado', 'pospuesto', 'cancelado')) DEFAULT 'borrador',
     CONSTRAINT fk_organizador FOREIGN KEY (idOrganizador) REFERENCES Usuarios (idUsuario) ON DELETE CASCADE,
     CONSTRAINT fk_tipoEvento FOREIGN KEY (idTipoEvento) REFERENCES TiposEvento (idTipoEvento) ON DELETE CASCADE
 );
@@ -59,4 +72,31 @@ CREATE TABLE Invitaciones (
     fechaRespuesta TIMESTAMP,
     CONSTRAINT fk_eventoInvitacion FOREIGN KEY (idEvento) REFERENCES Eventos (idEvento) ON DELETE CASCADE,
     CONSTRAINT fk_invitadoInvitacion FOREIGN KEY (idInvitado) REFERENCES Invitados (idInvitado) ON DELETE CASCADE
+);
+
+-- Tabla Mensajes
+CREATE TABLE Mensajes (
+    idMensaje SERIAL PRIMARY KEY,
+    idEvento INT NOT NULL,
+    idUsuario INT NOT NULL,
+    idInvitado INT NOT NULL,
+    mensaje TEXT NOT NULL,
+    fechaEnvio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_eventoMensaje FOREIGN KEY (idEvento) REFERENCES Eventos (idEvento) ON DELETE CASCADE,
+    CONSTRAINT fk_usuarioMensaje FOREIGN KEY (idUsuario) REFERENCES Usuarios (idUsuario) ON DELETE CASCADE,
+    CONSTRAINT fk_invitadoMensaje FOREIGN KEY (idInvitado) REFERENCES Invitados (idInvitado) ON DELETE CASCADE
+);
+
+-- Tabla Correos
+CREATE TABLE Correos (
+    idCorreo SERIAL PRIMARY KEY,
+    idEvento INT NOT NULL,
+    idUsuario INT NOT NULL,
+    idInvitado INT NOT NULL,
+    asunto VARCHAR(100) NOT NULL,
+    mensaje TEXT NOT NULL,
+    fechaEnvio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_eventoCorreo FOREIGN KEY (idEvento) REFERENCES Eventos (idEvento) ON DELETE CASCADE,
+    CONSTRAINT fk_usuarioCorreo FOREIGN KEY (idUsuario) REFERENCES Usuarios (idUsuario) ON DELETE CASCADE,
+    CONSTRAINT fk_invitadoCorreo FOREIGN KEY (idInvitado) REFERENCES Invitados (idInvitado) ON DELETE CASCADE
 );
