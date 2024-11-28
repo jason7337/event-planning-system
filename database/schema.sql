@@ -22,9 +22,12 @@ CREATE TABLE Invitados (
     nombre VARCHAR(100) NOT NULL,
     correoElectronico VARCHAR(100) UNIQUE NOT NULL,
     contraseña VARCHAR(255) NOT NULL,
+    telefono VARCHAR(15)
+
     telefono VARCHAR(15),
     idTipoInvitado INT NOT NULL,
     CONSTRAINT fk_tipoInvitado FOREIGN KEY (idTipoInvitado) REFERENCES TipoInvitado (idTipoInvitado) ON DELETE CASCADE
+
 );
 
 -- Tabla TiposEvento
@@ -44,6 +47,7 @@ CREATE TABLE Eventos (
     ubicacion VARCHAR(255),
     idOrganizador INT NOT NULL,
     idTipoEvento INT NOT NULL,
+    estado VARCHAR(20) CHECK (estado IN ('activo', 'cancelado')) DEFAULT 'activo',
     estado VARCHAR(20) CHECK (estado IN ('borrador', 'publicado', 'activo', 'en_progreso', 'finalizado', 'pospuesto', 'cancelado')) DEFAULT 'borrador',
     CONSTRAINT fk_organizador FOREIGN KEY (idOrganizador) REFERENCES Usuarios (idUsuario) ON DELETE CASCADE,
     CONSTRAINT fk_tipoEvento FOREIGN KEY (idTipoEvento) REFERENCES TiposEvento (idTipoEvento) ON DELETE CASCADE
