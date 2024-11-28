@@ -2,19 +2,36 @@
 <html lang="en" xmlns:th="www.thymeleaf.org/">
 <head th:replace="fragments/headerlogin"></head>
 <body class="text-center">
-<form class="form-signin" th:action="@{/login}" th:object="${usuarioModel}" method="post">
-    <img class="mb-4" src="/img/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Iniciar sesión</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="fondo-login p-5 rounded shadow">
+                <div class="row align-items-center">
 
-    <label for="correoElectronico" class="sr-only">Correo electrónico</label>
-    <input type="email" id="correoElectronico" class="form-control" placeholder="Correo electrónico" th:field="*{correoElectronico}" required autofocus>
+                    <div class="col-md-6 mb-4 mb-md-0">
+                        <img class="img-fluid" src="/img/logo-event.jpg" alt="Logo" width="450" height="450">
+                    </div>
 
-    <label for="contraseña" class="sr-only">Contraseña</label>
-    <input type="password" id="contraseña" class="form-control" placeholder="Contraseña" th:field="*{contraseña}" required>
+                    <div class="col-md-6">
+                        <form class="form-signin" th:action="@{/login}" th:object="${usuarioModel}" method="post">
+                            <h1 class="h3 mb-3 font-weight-normal">Iniciar sesión</h1>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+                            <label for="correoElectronico" class="sr-only">Correo electrónico</label>
+                            <input type="email" id="correoElectronico" class="form-control mb-3" placeholder="Correo electrónico" th:field="*{correoElectronico}" required autofocus>
 
-    <p class="mt-5 mb-3 text-muted">&copy; <span th:text="${#dates.format(new java.util.Date(), 'yyyy')}"></span></p>
-</form>
+                            <label for="contraseña" class="sr-only">Contraseña</label>
+                            <input type="password" id="contraseña" class="form-control mb-3" placeholder="Contraseña" th:field="*{contraseña}" required>
+
+                            <button class="btn btn-lg btn-block boton-ingresar" type="submit">Ingresar</button>
+
+                            <p class="mt-3">¿No tienes una cuenta? <a href="/registrar">Crear Cuenta</a></p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org/">
+<head th:replace="fragments/header"></head>
+<body>
+<nav th:replace="fragments/nav"></nav>
+<main role="main" class="container">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Título</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Fecha de inicio</th>
+            <th scope="col">Fecha de fin</th>
+            <th scope="col">Ubicación</th>
+            <th scope="col">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="evento : ${data_evento}">
+            <td th:text="${evento.titulo}"></td>
+            <td th:text="${evento.descripcion}"></td>
+            <td th:text="${evento.fechainicio}"></td>
+            <td th:text="${evento.fechafin}"></td>
+            <td th:text="${evento.ubicacion}"></td>
+            <td>
+                <a th:href="@{/evento/{id}(id=${evento.idevento})}" class="btn btn-warning">Confirmar asistencia</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

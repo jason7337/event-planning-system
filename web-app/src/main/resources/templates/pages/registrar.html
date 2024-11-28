@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" xmlns:th="www.thymeleaf.org/">
+<head th:replace="fragments/headerlogin"></head>
+<body class="text-center">
+<form class="form-signin" th:action="@{/registrar}" th:object="${usuarioModel}" method="post">
+    <img class="mb-4" src="/img/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Registrar Usuario</h1>
+
+    <label for="nombre" class="sr-only">Nombre Completo</label>
+    <input type="text" id="nombre" class="form-control" placeholder="Nombre Completo" th:field="*{nombre}" required >
+
+    <label for="correoElectronico" class="sr-only">Correo electrónico</label>
+    <input type="email" id="correoElectronico" class="form-control" placeholder="Correo electrónico" th:field="*{correoElectronico}" required autofocus>
+
+    <label for="telefono" class="sr-only">Telefono</label>
+    <input type="text" id="telefono" class="form-control" placeholder="Telefono" th:field="*{telefono}" required>
+
+    <label for="contraseña" class="sr-only">Contraseña</label>
+    <input type="password" id="contraseña" class="form-control" placeholder="Contraseña" th:field="*{contraseña}" required>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Registrar</button>
+    <div th:if="${error}" class="error">
+        <p th:text="${error}"></p>
+    </div>
+    <label>¿Ya tienes una cuenta? <a href="/login">Iniciar Sesión</a></label>
+
+    <p class="mt-5 mb-3 text-muted">&copy; <span th:text="${#dates.format(new java.util.Date(), 'yyyy')}"></span></p>
+</form>
+</body>
+</html>

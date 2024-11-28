@@ -1,0 +1,12 @@
+body {
+background-color: #e4eaff;
+}
+.nav-custom {
+    background-color: #1b1f2f;
+}
+.jumbotron {
+    text-align: center;
+    margin: 5% auto;
+    max-width: 600px;
+    padding: 100px;
+}
