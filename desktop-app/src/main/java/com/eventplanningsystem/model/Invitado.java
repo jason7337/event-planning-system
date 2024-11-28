@@ -4,7 +4,6 @@ public class Invitado {
     private int idInvitado;
     private String nombre;
     private String correoElectronico;
-    private String password;
     private String telefono;
     private TipoInvitado tipoInvitado;
 
@@ -12,11 +11,10 @@ public class Invitado {
     public Invitado() {}
 
     // Constructor con parámetros
-    public Invitado(int idInvitado, String nombre, String correoElectronico, String password, String telefono, TipoInvitado tipoInvitado) {
+    public Invitado(int idInvitado, String nombre, String correoElectronico, String telefono, TipoInvitado tipoInvitado) {
         this.idInvitado = idInvitado;
         this.nombre = nombre;
         this.correoElectronico = correoElectronico;
-        this.password = password;
         this.telefono = telefono;
         this.tipoInvitado = tipoInvitado;
     }
@@ -44,14 +42,6 @@ public class Invitado {
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getTelefono() {

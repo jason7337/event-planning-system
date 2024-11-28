@@ -1,12 +1,16 @@
 package com.eventplanningsystem.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.eventplanningsystem.model.Invitado;
 import com.eventplanningsystem.model.TipoInvitado;
 import com.eventplanningsystem.util.DatabaseUtil;
-
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class InvitadoDAO {
     public Invitado getInvitadoById(int id) throws SQLException {
@@ -42,12 +46,11 @@ public class InvitadoDAO {
     }
 
     public void createInvitado(Invitado invitado) throws SQLException {
-        String sql = "INSERT INTO Invitados (nombre, correoElectronico, contraseña, telefono, idTipoInvitado) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Invitados (nombre, correoElectronico, telefono, idTipoInvitado) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseUtil.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, invitado.getNombre());
             pstmt.setString(2, invitado.getCorreoElectronico());
-            pstmt.setString(3, invitado.getPassword());
             pstmt.setString(4, invitado.getTelefono());
             pstmt.setInt(5, invitado.getTipoInvitado().getIdTipoInvitado());
             pstmt.executeUpdate();
@@ -101,7 +104,6 @@ public class InvitadoDAO {
         invitado.setIdInvitado(rs.getInt("idInvitado"));
         invitado.setNombre(rs.getString("nombre"));
         invitado.setCorreoElectronico(rs.getString("correoElectronico"));
-        invitado.setPassword(rs.getString("contraseña"));
         invitado.setTelefono(rs.getString("telefono"));
         
         TipoInvitado tipoInvitado = new TipoInvitado();

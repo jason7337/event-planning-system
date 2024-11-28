@@ -5,7 +5,7 @@ CREATE TABLE Usuarios (
     correoElectronico VARCHAR(100) UNIQUE NOT NULL,
     contraseña VARCHAR(255) NOT NULL,
     telefono VARCHAR(15),
-    tipoUsuario VARCHAR(20) CHECK (tipoUsuario IN ('organizador', 'gestor')) NOT NULL,
+    tipoUsuario VARCHAR(20) CHECK (tipoUsuario IN ('organizador', 'gestor', 'usuario')) NOT NULL,
     fechaRegistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -21,7 +21,6 @@ CREATE TABLE Invitados (
     idInvitado SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     correoElectronico VARCHAR(100) UNIQUE NOT NULL,
-    contraseña VARCHAR(255) NOT NULL,
     telefono VARCHAR(15),
     idTipoInvitado INT NOT NULL,
     CONSTRAINT fk_tipoInvitado FOREIGN KEY (idTipoInvitado) REFERENCES TipoInvitado (idTipoInvitado) ON DELETE CASCADE

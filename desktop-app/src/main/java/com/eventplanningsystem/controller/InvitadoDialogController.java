@@ -15,7 +15,6 @@ public class InvitadoDialogController {
     @FXML private TextField nameField;
     @FXML private TextField emailField;
     @FXML private TextField phoneField;
-    @FXML private PasswordField passwordField;
     @FXML private ComboBox<TipoInvitado> tipoInvitadoComboBox;
     private TipoInvitadoService tipoInvitadoService;
     private Invitado invitado;
@@ -67,9 +66,6 @@ public class InvitadoDialogController {
             invitado.setCorreoElectronico(emailField.getText());
             invitado.setTelefono(phoneField.getText());
             invitado.setTipoInvitado(tipoInvitadoComboBox.getValue());
-            if (!passwordField.getText().isEmpty()) {
-                invitado.setPassword(passwordField.getText());
-            }
 
             saveClicked = true;
             closeDialog();

@@ -25,9 +25,6 @@
 
         <Label text="Tipo de Invitado:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
         <ComboBox fx:id="tipoInvitadoComboBox" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-
-        <Label text="Contraseña:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-        <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
     </GridPane>
 
     <HBox spacing="10" alignment="CENTER_RIGHT">
